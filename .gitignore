@@ -1,0 +1,10 @@
+# build files
+
+*.mf
+*.rtf
+*.class
+nbproject
+dist
+build
+build.xml
+wz
