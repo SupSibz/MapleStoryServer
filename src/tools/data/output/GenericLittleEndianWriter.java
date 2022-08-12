@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package tools.data.output;
 
+import constants.ServerConstants;
 import java.awt.Point;
 import java.nio.charset.Charset;
 
@@ -137,7 +138,7 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
      */
     @Override
     public final void writeAsciiString(final String s) {
-        write(s.getBytes(ASCII));
+        write(s.getBytes(ServerConstants.MapleEncoding));
     }
 
     @Override
@@ -145,7 +146,7 @@ public class GenericLittleEndianWriter implements LittleEndianWriter {
         if (s.length() > max) {
             s = s.substring(0, max);
         }
-        write(s.getBytes(ASCII));
+        write(s.getBytes(ServerConstants.MapleEncoding));
         for (int i = s.length(); i < max; i++) {
             write(0);
         }

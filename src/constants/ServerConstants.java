@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package constants;
 
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.LinkedList;
 
@@ -71,6 +72,7 @@ public class ServerConstants {
     public static final int MTS_TAX = 5; //+% to everything, GMS = 10
     public static final int MTS_MESO = 10000; //mesos needed, GMS = 5000
     public static final String SQL_USER = "root", SQL_PASSWORD = "";
+    public static final Charset MapleEncoding = Charset.forName("TIS-620");
     //master login is only used in GMS: fake account for localhost only
     //master and master2 is to bypass all accounts passwords only if you are under the IPs below
 

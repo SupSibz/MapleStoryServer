@@ -141,14 +141,14 @@ public class MaplePacketLittleEndianWriter {
      * @param s The ASCII string to write.
      */
     public final void writeAsciiString(final String s) {
-        write(s.getBytes(ASCII));
+        write(s.getBytes(ServerConstants.MapleEncoding));
     }
 
     public final void writeAsciiString(String s, final int max) {
         if (s.length() > max) {
             s = s.substring(0, max);
         }
-        write(s.getBytes(ASCII));
+        write(s.getBytes(ServerConstants.MapleEncoding));
         for (int i = s.length(); i < max; i++) {
             write(0);
         }

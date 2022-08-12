@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package tools.data.input;
 
+import constants.ServerConstants;
 import java.awt.Point;
 import java.io.ByteArrayOutputStream;
 
@@ -142,11 +143,16 @@ public class GenericLittleEndianAccessor implements LittleEndianAccessor {
      * @return The string read.
      */
     public final String readAsciiString(final int n) {
-        final char ret[] = new char[n];
+        byte[] ret = new byte[n];
         for (int x = 0; x < n; x++) {
-            ret[x] = (char) readByte();
+            ret[x] = readByte();
         }
-        return new String(ret);
+        try {
+            return new String(ret, ServerConstants.MapleEncoding);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+        return null;
     }
 
     /**
